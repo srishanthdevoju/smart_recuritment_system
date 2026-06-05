@@ -45,7 +45,243 @@ st.set_page_config(
     page_icon="💳",
     layout="wide"
 )
+def load_css():
 
+    st.markdown("""
+    <style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+    html, body, [class*="css"]{
+        font-family:'Outfit',sans-serif;
+    }
+
+    .stApp{
+
+        background:
+        radial-gradient(circle at top left,
+        rgba(0,255,255,0.15),
+        transparent 30%),
+
+        radial-gradient(circle at top right,
+        rgba(59,130,246,0.15),
+        transparent 30%),
+
+        radial-gradient(circle at bottom,
+        rgba(99,102,241,0.15),
+        transparent 35%),
+
+        #020617;
+
+        color:white;
+    }
+
+    #MainMenu{
+        visibility:hidden;
+    }
+
+    footer{
+        visibility:hidden;
+    }
+
+    header{
+        visibility:hidden;
+    }
+
+    [data-testid="stSidebar"]{
+
+        background:
+        linear-gradient(
+            180deg,
+            #0f172a,
+            #111827
+        );
+
+        border-right:
+        1px solid rgba(255,255,255,0.08);
+
+        backdrop-filter:blur(25px);
+    }
+
+    [data-testid="stSidebar"] *{
+        color:white !important;
+    }
+
+    h1{
+
+        font-size:3rem !important;
+
+        font-weight:800 !important;
+
+        background:
+        linear-gradient(
+            90deg,
+            #00e5ff,
+            #60a5fa,
+            #6366f1
+        );
+
+        -webkit-background-clip:text;
+
+        -webkit-text-fill-color:transparent;
+    }
+
+    h2,h3{
+        color:#f8fafc;
+    }
+
+    div[data-testid="metric-container"]{
+
+        background:
+        rgba(255,255,255,0.04);
+
+        backdrop-filter:
+        blur(18px);
+
+        border:
+        1px solid rgba(255,255,255,0.08);
+
+        border-radius:20px;
+
+        padding:20px;
+
+        transition:0.4s;
+    }
+
+    div[data-testid="metric-container"]:hover{
+
+        transform:
+        translateY(-8px);
+
+        box-shadow:
+        0 15px 40px rgba(0,229,255,0.25);
+    }
+
+    div[data-testid="metric-container"] label{
+
+        color:#94a3b8 !important;
+    }
+
+    div[data-testid="metric-container"] div{
+
+        color:#00e5ff !important;
+
+        font-size:34px;
+    }
+
+    .stButton button{
+
+        width:100%;
+
+        border:none;
+
+        border-radius:16px;
+
+        background:
+        linear-gradient(
+            135deg,
+            #00e5ff,
+            #2563eb
+        );
+
+        color:white;
+
+        font-weight:700;
+
+        height:55px;
+
+        transition:0.35s;
+    }
+
+    .stButton button:hover{
+
+        transform:scale(1.03);
+
+        box-shadow:
+        0 0 25px rgba(0,229,255,0.6);
+    }
+
+    [data-testid="stFileUploader"]{
+
+        border:
+        2px dashed #00e5ff;
+
+        border-radius:20px;
+
+        padding:25px;
+
+        background:
+        rgba(0,229,255,0.05);
+    }
+
+    [data-testid="stDataFrame"]{
+
+        border-radius:18px;
+
+        overflow:hidden;
+
+        border:
+        1px solid rgba(255,255,255,0.08);
+    }
+
+    .js-plotly-plot{
+
+        border-radius:18px;
+    }
+
+    .stAlert{
+
+        border-radius:18px;
+    }
+
+    ::-webkit-scrollbar{
+        width:8px;
+    }
+
+    ::-webkit-scrollbar-thumb{
+
+        background:#00e5ff;
+
+        border-radius:10px;
+    }
+
+    @keyframes glow{
+
+        0%{
+            box-shadow:0 0 10px rgba(0,229,255,0.2);
+        }
+
+        50%{
+            box-shadow:0 0 30px rgba(0,229,255,0.5);
+        }
+
+        100%{
+            box-shadow:0 0 10px rgba(0,229,255,0.2);
+        }
+    }
+
+    .hero-card{
+
+        background:
+        rgba(255,255,255,0.05);
+
+        backdrop-filter:
+        blur(20px);
+
+        border:
+        1px solid rgba(255,255,255,0.08);
+
+        border-radius:24px;
+
+        padding:25px;
+
+        animation:glow 4s infinite;
+    }
+
+    </style>
+    """, unsafe_allow_html=True)
+
+load_css()
 
 # ==================================================
 # LOAD MODEL
@@ -92,8 +328,14 @@ scaler = load_scaler()
 # ==================================================
 # HEADER
 # ==================================================
-
-st.title("💳 Fraud Intelligence Dashboard")
+st.markdown("""
+<div class="hero-card">
+    <h1>💳 Fraud Intelligence Dashboard</h1>
+    <p style="font-size:18px;color:#cbd5e1;">
+        LSTM • Self Attention • Positional Encoding • Real-Time Fraud Detection
+    </p>
+</div>
+""", unsafe_allow_html=True)
 
 st.markdown(
     """
